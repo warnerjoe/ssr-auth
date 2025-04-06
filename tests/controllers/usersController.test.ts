@@ -1,17 +1,17 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import User from '../../models/User';
-import * as tokenUtils from '../../utils/tokenUtils';
-import { mockUserCreate } from '../../utils/test_helpers/mocks/usersControllerMock';
+import User from '../../src/models/User';
+import * as tokenUtils from '../../src/utils/tokenUtils';
+import { mockUserCreate } from '../mocks/usersControllerMock';
 import {
     mockId,
     jwtSecret
-} from '../../utils/test_helpers/helpers/testConstants';
+} from '../helpers/testConstants';
 
 jest.mock('jsonwebtoken', () => ({
     sign: jest.fn(() => 'mockedToken'),
 }));
-jest.mock('../../models/User');
+jest.mock('../../src/models/User');
 jest.mock('bcryptjs');
 
 beforeEach(() => {

@@ -1,16 +1,16 @@
 import bcrypt from 'bcryptjs';
-import User from '../../models/User';
-import { registerUser } from '../../controllers/usersController';
-import * as tokenUtils from '../../utils/tokenUtils';
-import { buildReqRes, buildValidReqRes, expectErrorResponse, expectSuccessfulRegisterRes, expectPasswordHashCalled } from '../../utils/test_helpers/helpers/testHelpers';
-import { mockEmail, mockPassword } from '../../utils/test_helpers/helpers/testConstants';
-import { mockUserCreate, mockEmailAlreadyExists } from '../../utils/test_helpers/mocks/usersControllerMock';
+import User from '../../src/models/User';
+import { registerUser } from '../../src/controllers/usersController';
+import * as tokenUtils from '../../src/utils/tokenUtils';
+import { buildReqRes, buildValidReqRes, expectErrorResponse, expectSuccessfulRegisterRes, expectPasswordHashCalled } from '../helpers/testHelpers';
+import { mockEmail, mockPassword } from '../helpers/testConstants';
+import { mockUserCreate, mockEmailAlreadyExists } from '../mocks/usersControllerMock';
 
 jest.mock('jsonwebtoken', () => ({
     sign: jest.fn(() => 'mockedToken'),
 }));
 
-jest.mock('../../models/User');
+jest.mock('../../src/models/User');
 jest.mock('bcryptjs');
 
 beforeEach(() => {

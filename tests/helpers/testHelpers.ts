@@ -1,7 +1,7 @@
 import { mockRequest, mockResponse } from 'jest-mock-req-res';
 import { Request, Response, NextFunction } from 'express';
-import * as tokenUtils from '../../tokenUtils'; 
-import { mockEmail, mockPassword } from './testConstants';
+import * as tokenUtils from '../../src/utils/tokenUtils'; 
+import { mockEmail, mockPassword } from '../helpers/testConstants';
 import bcrypt from 'bcryptjs';
 
 // Helper function to take the body in, and return the request and response
