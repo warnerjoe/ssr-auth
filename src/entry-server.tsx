@@ -9,7 +9,7 @@ export function render() {
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
-        <title>SSR with Vite</title>
+        <title>Sentomment</title>
         <script type="module" src="/src/main.js"></script>
       </head>
       <body>
