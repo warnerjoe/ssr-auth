@@ -5,8 +5,22 @@ import { Server }            from 'http';
 import mongoose from 'mongoose';
 import path from 'path';
 import { render } from '../entry-server'; 
+import vite from 'vite';
 
 dotenv.config({ path: path.resolve(__dirname, 'config/.env') });
+
+let viteDevServer;
+const startVite = async () => {
+  if (process.env.NODE_ENV === 'development') {
+      viteDevServer = await vite.createServer({
+          server: { middlewareMode: true },
+          appType: 'custom'  
+      });
+      app.use(viteDevServer.middlewares);
+  }
+};
+
+startVite();
 
 app.use(express.json());
 

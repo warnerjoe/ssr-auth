@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start:server": "nodemon src/server/server.ts",
-    "build:server": "tsc",
-    "serve:server": "node dist/server.js",
+    "dev": "vite",
     "test": "jest --watchAll",
-    "dev:client": "vite",
+    "build": "vite build && vite build --ssr && tsc",
+    "dev:server": "nodemon --watch src/server --ext ts,tsx --exec ts-node src/server/server.ts",
+    "serve": "vite preview",
     "build:client": "vite build",
-    "ssr": "vite build --ssr",
-    "serve": "vite preview"
+    "build:ssr": "vite build --ssr",
+    "build:server": "tsc",
+    "start:server": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
