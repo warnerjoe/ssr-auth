@@ -3,11 +3,28 @@ import dotenv                from 'dotenv';
 import express               from 'express';
 import { Server }            from 'http';
 import mongoose, { connect } from 'mongoose';
-import path                  from 'path';
+import path from 'path';
+import fs from 'fs';
+import { render } from '../entry-server'; 
 
 dotenv.config({ path: path.resolve(__dirname, 'config/.env') });
 
 app.use(express.json());
+
+app.use(express.static(path.resolve(__dirname, 'dist')));
+
+app.all('*', (req, res) => {
+  try {
+    // Generate the HTML for the requested route using SSR render function
+    const html = render();  // No need to pass req here
+
+    // Send the SSR HTML to the client
+    res.send(html);
+  } catch (error) {
+    console.error('SSR Rendering Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 export const startServer = async(): Promise<Server> => {
     try {

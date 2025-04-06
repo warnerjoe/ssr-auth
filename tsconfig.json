@@ -1,14 +1,16 @@
 {
     "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
+      "target": "ES2020",
+      "module": "commonJS",
       "outDir": "./dist",
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "allowSyntheticDefaultImports": true
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "jsx": "react"
     },
-    "include": ["folder/**/*.ts", "tests/setup.tssts__/setup.ts"],
+    "include": ["src/**/*.ts", "tests/**/*.ts"],
     "exclude": ["node_modules"]
   }
