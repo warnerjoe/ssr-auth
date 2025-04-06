@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
-import User from '../../src/models/User';
-import { loginUser } from '../../src/controllers/usersController';
-import * as tokenUtils from '../../src/utils/tokenUtils';
+import User from '../../../src/server/models/User';
+import { loginUser } from '../../../src/server/controllers/usersController';
+import * as tokenUtils from '../../../src/server/utils/tokenUtils';
 import { expectErrorResponse } from '../helpers/testHelpers';
 import { mockUserCreate, mockUserFound, mockPasswordMatch, mockLoginSetup } from '../mocks/usersControllerMock';
 import { mockEmail, mockPassword, mockUser } from '../helpers/testConstants';
@@ -12,7 +12,7 @@ jest.mock('jsonwebtoken', () => ({
     sign: jest.fn(() => 'mockedToken'),
 }));
 
-jest.mock('../../src/models/User');
+jest.mock('../../../src/server/models/User');
 jest.mock('bcryptjs');
 
 beforeEach(() => {

@@ -9,6 +9,6 @@
       "forceConsistentCasingInFileNames": true,
       "allowSyntheticDefaultImports": true
     },
-    "include": ["src/**/*.ts", "tests/setup.tssts__/setup.ts"],
+    "include": ["folder/**/*.ts", "tests/setup.tssts__/setup.ts"],
     "exclude": ["node_modules"]
   }
